@@ -121,17 +121,7 @@ const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
   // write your code here
-  for (let i = 0; i < courses.length; i++) {
-    const course = courses[i];
-    courseNames.push(course.name);
-
-    for (let j = 0; j < course.students.length; j++) {
-      const student = course.students[j];
-      if (!studentNames.includes(student)) {
-        studentNames.push(student);
-      }
-    }
-  }
+ 
 
   return { coursesName, studentsName };
 };
