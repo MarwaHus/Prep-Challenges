@@ -91,24 +91,26 @@ const objLat = (obj) => {
 
 const cvFormatter = (arr) => {
     // write your code here
-    /*let reformattedCvs = [];
+    
+    const filteredApplicants = [];
 
     for (let i = 0; i < arr.length; i++) {
-        let cv = arr[i];
-        if (cv.yearsOfExperience > 1) {
-            let fullName = cv.firstName;
-            if (cv.lastName) {
-                fullName += " " + cv.lastName;
-            }
-            reformattedCvs.push({
-                fullName: fullName,
-                tech: cv.tech
-            });
-        }
+      const applicant = arr[i];
+      const fullName = `${applicant.first} ${applicant.last}`;
+  
+      if (applicant.experience > 1) {
+        const filteredApplicant = {
+          fullName,
+          tech: applicant.tech
+        };
+  
+         cvFormatter.push(filteredApplicant);
+      }
     }
-    
-    console.log(reformattedCvs);*/
-    let cvArray=[];
+  
+    return cvFormatter;
+
+    /*let cvArray=[];
     function Cv( firstName,lastName,yearsOfExperience,tech){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -128,7 +130,7 @@ const cvFormatter = (arr) => {
     let cv1= new Cv("Jason","James",20,"JS");
     let cv2= new Cv("Shira",null,5,".Net");
     let cv3= new Cv("Dmitri","Akkerman",1,"Python");
-    let cv4= new Cv("Isabella",null,7,"Java");
+    let cv4= new Cv("Isabella",null,7,"Java");*/
 
     }
 
@@ -158,6 +160,44 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     // write your code here
+    const stats = {
+        python_devs: 0,
+        javaScript_devs: 0,
+        dotNet_devs: 0,
+        java_devs: 0,
+        totalApplicants: 0,
+        rejectedApplicants: 0
+      };
+    
+      for (let i = 0; i < arr.length; i++) {
+        const applicant = arr[i];
+    
+        if (!applicant.first && !applicant.last && applicant.experience <= 1) {
+          stats.rejectedApplicants++;
+        } else {
+          stats.totalApplicants++;
+    
+          switch(applicant.tech) {
+            case 'Python':
+              stats.python_devs++;
+              break;
+            case 'JavaScript':
+              stats.javaScript_devs++;
+              break;
+            case '.Net':
+              stats.dotNet_devs++;
+              break;
+            case 'Java':
+              stats.java_devs++;
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    
+      return stats;
+    
 };
 // -------------------------------------------------------------------------------------------------------
 
