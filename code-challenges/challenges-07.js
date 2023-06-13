@@ -91,47 +91,18 @@ const objLat = (obj) => {
 
 const cvFormatter = (arr) => {
     // write your code here
-    
-    const filteredApplicants = [];
+    let newCvs = [];
 
-    for (let i = 0; i < arr.length; i++) {
-      const applicant = arr[i];
-      const fullName = `${applicant.first} ${applicant.last}`;
-  
-      if (applicant.experience > 1) {
-        const filteredApplicant = {
-          fullName,
-          tech: applicant.tech
-        };
-  
-         cvFormatter.push(filteredApplicant);
-      }
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i].yearsOfExperience > 1) {
+        let fullName = arr[i].firstName + (arr[i].lastName ? ' ' + arr[i].lastName : '');
+        newCvs.push({
+            fullName: fullName,
+            tech: arr[i].tech
+        });
     }
-  
-    return cvFormatter;
-
-    /*let cvArray=[];
-    function Cv( firstName,lastName,yearsOfExperience,tech){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.yearsOfExperience=yearsOfExperience
-        this.tech=tech;
-        cvArray.push(this);
-    }
-    Cv.prototype.newArray=function(){
-        document.write(`${this.firstName}${this.lastName}${this.tech}`);
-    }
-    for (let i = 0; i < arr.length; i++) {
-         if(this.yearsOfExperience>1 && this.firstName!= null && this.lastName!=null){
-
-    cvArray[i].newArray();
-}        
-    }
-    let cv1= new Cv("Jason","James",20,"JS");
-    let cv2= new Cv("Shira",null,5,".Net");
-    let cv3= new Cv("Dmitri","Akkerman",1,"Python");
-    let cv4= new Cv("Isabella",null,7,"Java");*/
-
+}
+return newCvs;
     }
 
 
