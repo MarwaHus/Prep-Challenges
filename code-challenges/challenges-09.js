@@ -112,27 +112,7 @@ const roundDecimals = (arr) => {
 
 const employeesBonus = (arr) => {
     // write your code here
-    /*for(let i=0; i<arr.length; i++){
-        if(arr[i].section === 'Production'){
-          if(arr[i].workHours > 8){
-            arr[i].salary = (parseInt(arr[i].salary) + 100) + '$';
-          }else{
-            arr[i].salary = (parseInt(arr[i].salary) + 50) + '$';
-          }
-        }
-      }*/
-      
-       /* arr.forEach(i=>{if(arr[i].section === 'Production'){
-            if(arr[i].workHours > 8){
-              arr[i].salary = (parseInt(arr[i].salary) + 100) + '$';
-            }else{
-              arr[i].salary = (parseInt(arr[i].salary) + 50) + '$';
-            }
-      }})
-        
-    
-    return arr;*/
-    arr.forEach((employee) => {
+  arr.forEach((employee) => {
         // Check if employee worked more than 8 hours
         if (employee.workHours > 8) {
             // Give $100 bonus
