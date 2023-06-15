@@ -42,7 +42,12 @@ const arrInc = (arr) => {
 // 
 const roundDecimals = (arr) => {
     // write your code here
-    return arr.map(num => Math.round(num));
+   /* return arr.map(num => Math.round(num));*/
+   let arr1 = [];
+   arr.forEach(num => {
+     arr1.push(Math.round(num));
+   });
+   return arr1;
 }
 // -------------------------------------------------------------------------------------------------------
 
